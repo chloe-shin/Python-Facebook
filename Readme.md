@@ -2,7 +2,7 @@
 
 Created with love by: `Chloe`
 
-View online at: [NOT FETCHED YET](https://)
+View online at: [Not yet ready](https://)
 
 ## Video Walkthrough
 
