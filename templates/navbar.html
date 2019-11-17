@@ -1,0 +1,32 @@
+
+ 
+ <header class="blog-header py-3">
+    <div class="row flex-nowrap justify-content-between align-items-center">
+      <div class="col-4 pt-1">
+        <a class="blog-header-logo text-dark" href="#">{hloebook</a>
+      </div>
+      <div class="col-4 text-center">
+        <a class="blog-header-logo text-dark" href="#"></a>
+      </div>
+      <div class="col-4 d-flex justify-content-end align-items-center">
+        <a class="text-muted" href="#">
+        </a>
+        {% if current_user.is_authenticated %}
+        <a class="btn btn-sm btn-outline-secondary" href={{url_for('logout')}}>Log out</a>
+        {% else %}
+        <a class="btn btn-sm btn-outline-secondary mr-2" href={{url_for('login')}}>Sign in</a>
+        <a class="btn btn-sm btn-outline-secondary" href={{url_for('register')}}>Register</a>
+        {% endif %}
+      </div>
+    </div>
+  </header>
+  
+  <div class="nav-scroller py-1 mb-2">
+    <nav class="nav d-flex justify-content">
+        <a class="p-2 mr-5 text-muted" href={{url_for('root')}}><small>HOME</small></a>
+      <a class="p-2 mr-5 text-muted" href="#"><small>RECENT POST</small></a>
+      <a class="p-2 mr-5 text-muted" href="#"><small>POPULAR POST</small></a>
+    </nav>
+  </div>
+  
+  
