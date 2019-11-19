@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class='posts-container'>
+    <div class='single-post-container'>
+        <strong>
+          <p class="post-owner">{{post.author.username}}</p>
+        </strong>
+        <pre class="date">{{post.created}}</pre>
+        <h6>{{post.body}}</h6>
+
+        {% if post == current_user.id %}
+        <div class="edit d-flex justify-content-end">
+          <a href="{{url_for('single_post', id=post.id, action='edit')}}">
+            <button type="button" class="btn btn-primary btn-sm mx-1"> Edit </button>
+          </a>
+          <form method="POST" action={{url_for('single_post', id=post.id, action='delete')}}>
+            <button type="submit" class="btn btn-warning btn-sm"> Delete </button>
+          </form>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
