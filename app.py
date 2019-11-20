@@ -15,7 +15,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
-
 # default coder for flask_login
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -82,7 +81,8 @@ def root():
     # modify our posts so that each post will include all author info:
     for post in posts:
         post.author = User.query.filter_by(id=post.user_id).first()
-    return render_template("home.html", posts=posts)
+    if filter:
+        return render_template("home.html", posts=posts)
 
 
 # set route / link creating post
